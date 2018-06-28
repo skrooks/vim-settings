@@ -1,6 +1,10 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+filetype plugin on
+
+packadd! matchit
+
 set hidden      " Allow buffer switching without saving
 set number      " Show line numbers
 set hlsearch    " Highlight search results
@@ -17,13 +21,12 @@ set guifont=DejaVuSansMono_NF:h11
 " Don't show toolbar (T)
 set guioptions-=tT
 
+set termguicolors    " Use 24-bit color
+set background=dark  " Use dark colorscheme variants
 colorscheme graywh
 
 " Highlight problematic whitespace
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:·,eol:¬
-
-set termguicolors    " Use 24-bit color
-set background=dark  " Use dark colorscheme variants
 
 " Load powerline symbols
 let g:airline_powerline_fonts = 1
@@ -33,8 +36,10 @@ let g:airline#extensions#tabline#enabled = 1
 " Keymaps
 nnoremap gb :ls<CR>:buffer<Space>
 nnoremap <C-N> :NERDTree<CR>
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <Left> :bnext<CR>
+nnoremap <Right> :bprevious<CR>
+" Use %% to expand current path in command mode
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Commands
 " Set current directory to that of the currently opened file.
