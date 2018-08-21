@@ -37,8 +37,8 @@ let g:airline#extensions#tabline#enabled = 1
 " Keymaps
 nnoremap gb :ls<CR>:buffer<Space>
 nnoremap <C-N> :NERDTree<CR>
-nnoremap <Left> :bnext<CR>
-nnoremap <Right> :bprevious<CR>
+nnoremap <Left> :bprevious<CR>
+nnoremap <Right> :bnext<CR>
 " Use %% to expand current path in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
