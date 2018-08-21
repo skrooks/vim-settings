@@ -7,19 +7,21 @@
 packadd minpac
 
 call minpac#init()
-
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-abolish')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('mhinz/vim-signify')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('tpope/vim-fugitive')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('scrooloose/nerdtree')
+call minpac#add('scrooloose/nerdcommenter')
 call minpac#add('nathanaelkane/vim-indent-guides')
-call minpac#add('mhinz/vim-signify')
+call minpac#add('godlygeek/tabular')
 
 " VimDevIcons needs to be called last-ish
 call minpac#add('ryanoasis/vim-devicons')
