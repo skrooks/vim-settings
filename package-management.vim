@@ -18,6 +18,8 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('scrooloose/nerdtree')
+call minpac#add('nathanaelkane/vim-indent-guides')
+call minpac#add('mhinz/vim-signify')
 
 " VimDevIcons needs to be called last-ish
 call minpac#add('ryanoasis/vim-devicons')
