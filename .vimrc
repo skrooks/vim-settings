@@ -1,7 +1,8 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-filetype plugin on
+filetype plugin indent on
+syntax on
 
 packadd! matchit
 
