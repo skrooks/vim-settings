@@ -6,7 +6,7 @@ You also need to have git installed.
 
 ## Fonts
 
-Two of the included packages ([vim-airline] and [vim-devicons]) require a patched font to display correctly. You can grab one from [Nerd Fonts]. Avoid the v2.0.0 fonts since they're not correctly recognized as monospace fonts. Install the desired font on your system. Go to the GitHub page and go to the Releases. Grab the desired font from the v1.2.0 release until v2.1.0 is ready.
+Two of the included packages ([vim-airline] and [vim-devicons]) require a patched font to display correctly. You can grab one from [NerdFonts]. Go to the GitHub page and check the Releases. Avoid the v2.0.0 fonts since they're not correctly recognized as monospace fonts. Grab the desired font from the v1.2.0 release until the fonts get fixed in v2.1.0.
 
 On Ubuntu, just add the font files to `~/.fonts`. Since I use nvim from terminal, I set the terminal's default font to the desired patched Nerd Font.
 
@@ -26,7 +26,7 @@ ln -s ~/repos/vim-settings ~/.config/nvim
 ln -s ~/.config/nvim/.vimrc ~/.config/nvim/init.vim
 ```
 
-You'll also need to install [minpac]. Navigate to the vim-settings folder
+You'll also need to install [minpac]. From within the vim-settings folder
 ```
 git clone https://github.com/k-takata/minpac.git pack/minpac/opt/minpac
 ```
@@ -50,8 +50,59 @@ Packages are specified in [package-management.vim]. After making any changes, so
 * `gb` (mnemonic Goto Buffer) will list the available buffers, asking which one to switch to
 * In command mode, `%%` will expand to the current path
 
+# Plugins
+
+* [vim-repeat] - Adds `.` command support for other plugins like [vim-surround].
+* [vim-surround] - Deals with surrounding things.
+  * `ys<motion><surround>`, e.g. `ysiw"` - wraps the word with "
+  * `cs<from><to>`, e.g. `cs'"` - change surrounding ' to "
+  * `ds<surround>`, e.g. `ds"` - delete surrounding "
+* [vim-abolish] - Deals with variants of words.
+  * `:Abolish` - Adds abbreviations to help correct spelling mistakes
+    * `:Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}`
+  * `:Subvert` - Like :substitute, but supports variants
+    * `:%Subvert/facilit{y,ies}/building{,s}/g`
+  * Coersion mapping `cr<style>` for changing word/separator formatting
+    * `crs` for snake\_case
+    * `crm` for MixedCase
+    * `crc` for camelCase
+    * `cru` for UPPER\_CASE
+    * `cr-` for dash-case
+    * `cr.` for dot.case
+    * `cr<space>` for space case
+    * `crt` for Title Case
+* [vim-fugitive] - Git commands for Vim.
+  * [A complement to command line git](http://vimcasts.org/e/31)
+  * [Working with the git index](http://vimcasts.org/e/32)
+  * [Resolving merge conflicts with vimdiff](http://vimcasts.org/e/33)
+  * [Browsing the git object database](http://vimcasts.org/e/34)
+  * [Exploring the history of a git repository](http://vimcasts.org/e/35)
+* [vim-signify] - Show added, modified, removed lines for git files.
+* [vim-easymotion] - Use `<Leader><Leader><motion>` for quick naviation.
+* [vim-airline] - An awesome status/tabline.
+* [vim-airline-themes] - Themes for [vim-airline]
+  * `:AirlineTheme <theme>` to change on the fly
+  * `let g:airline_theme='<theme>'` for vim config
+* [ctrlp.vim] - A fuzzy file, buffer, mru, tag... finder for Vim.
+* [nerdtree] - A tree explorer. Use `<C-N>` or `:NERDTree` to invoke.
+* [nerdcommenter] - Does comments. Use `<Leader>c<action>`, e.g. `<Leader>c<space>` to toggle comments.
+* [vim-indent-guides] - Visually display indent levels in code.
+* [tabular] - Aligns text. See [Aligning Text with Tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/).
+
 [package-management.vim]:package-management.vim
-[vim-airline]:https://github.com/vim-airline/vim-airline
 [vim-devicons]:https://github.com/ryanoasis/vim-devicons
-[NerdFonts]:https://nerdfonts.com
+[NerdFonts]:https://github.com/ryanoasis/nerd-fonts
 [minpac]:https://github.com/k-takata/minpac
+[vim-repeat]:https://github.com/tpope/vim-repeat
+[vim-surround]:https://github.com/tpope/vim-surround
+[vim-abolish]:https://github.com/tpope/vim-abolish
+[vim-fugitive]:https://github.com/tpope/vim-fugitive
+[vim-signify]:https://github.com/mhinz/vim-signify
+[vim-easymotion]:https://github.com/easymotion/vim-easymotion
+[vim-airline]:https://github.com/vim-airline/vim-airline
+[vim-airline-themes]:https://github.com/vim-airline/vim-airline-themes
+[ctrlp.vim]:https://github.com/ctrlpvim/ctrlp.vim
+[nerdtree]:https://github.com/scrooloose/nerdtree
+[nerdcommenter]:https://github.com/scrooloose/nerdcommenter
+[vim-indent-guides]:https://github.com/nathanaelkane/vim-indent-guides
+[tabular]:https://github.com/godlygeek/tabular

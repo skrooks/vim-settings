@@ -1,7 +1,7 @@
 " Taking a slightly different approach for package management.
 " Since you have to open this file to add packages anyway, just source this
 " file to load minpac and get the PackUpdate/PackClean commands.
-" source %
+" :source %
 " :PackUpdate
 
 packadd minpac
