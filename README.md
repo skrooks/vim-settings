@@ -15,15 +15,13 @@ On Ubuntu, just add the font files to `~/.fonts`. Since I use nvim from terminal
 Vim and NeoVim put their configs in different locations, so I prefer to just clone this repo, then symlink the files to their expected locations.
 
 For GVim on Windows
-```
-mklink /j %USERPROFILE%\.vim C:\repos\vim-settings
-mklink %USERPROFILE%\_vimrc C:\repos\vim-settings\.vimrc
-```
+
+GVim 8.1 uses `%USERPROFILE%\vimfiles`, but it's nothing but empty folders. Clear it, and checkout the project there.
 
 For NeoVim on Ubuntu
 ```
 ln -s ~/repos/vim-settings ~/.config/nvim
-ln -s ~/.config/nvim/.vimrc ~/.config/nvim/init.vim
+ln -s ~/.config/nvim/vimrc ~/.config/nvim/init.vim
 ```
 
 You'll also need to install [minpac]. From within the vim-settings folder
