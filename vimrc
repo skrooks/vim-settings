@@ -16,7 +16,11 @@ set backspace=indent,eol,start  " Backspace for dummies
 set mouse=a     " Enable mouse support
 set vb t_vb=    " Stop the beeping!
 
+set lines=45 columns=120
 set guifont=DejaVuSansMono_NF:h11
+
+set shiftwidth=4
+set tabstop=4
 
 " Don't use tearoff menus (t)
 " Don't show toolbar (T)
@@ -25,6 +29,20 @@ set guioptions-=tT
 set termguicolors    " Use 24-bit color
 set background=dark  " Use dark colorscheme variants
 colorscheme graywh
+
+" Let mouse wheel scroll file contents in console
+" When using ConEmu, remember to chcp 65001 for fonts
+if !has("gui_running")
+    " Enable ANSI colors in Vim.
+    set term=xterm
+    set t_Co=256
+    " Fix terminal foreground/background
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+    " Fix backspace issues in ConEmu
+    inoremap <Char-0x07F> <BS>
+    nnoremap <Char-0x07F> <BS>
+endif
 
 " Highlight problematic whitespace
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:·,eol:¬
@@ -37,10 +55,14 @@ let g:airline#extensions#tabline#enabled = 1
 " Keymaps
 nnoremap gb :ls<CR>:buffer<Space>
 nnoremap <C-N> :NERDTree<CR>
+" Might replace this with tpope/vim-unimpaired
 nnoremap <Left> :bprevious<CR>
 nnoremap <Right> :bnext<CR>
 " Use %% to expand current path in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Toggle spelling
+nmap <silent> <C-s>s :set spell!<CR>
 
 " Commands
 " Set current directory to that of the currently opened file.
