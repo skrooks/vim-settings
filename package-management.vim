@@ -22,6 +22,8 @@ call minpac#add('scrooloose/nerdtree')
 call minpac#add('scrooloose/nerdcommenter')
 call minpac#add('nathanaelkane/vim-indent-guides')
 call minpac#add('godlygeek/tabular')
+call minpac#add('ap/vim-css-color')
+call minpac#add('vim-scripts/Improved-AnsiEsc')
 
 " VimDevIcons needs to be called last-ish
 call minpac#add('ryanoasis/vim-devicons')

@@ -1,6 +1,8 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+let mapleader=","
+
 filetype plugin indent on
 syntax on
 
@@ -63,6 +65,16 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Toggle spelling
 nmap <silent> <C-s>s :set spell!<CR>
+
+" File Type Json
+nmap <silent> <Leader>ftj :set filetype=json<CR>
+" File Format Json
+nmap <silent> <Leader>ffj :%!py -m json.tool<CR>
+nmap <silent> <Leader>ffx :%!py -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml(newl=''))"<CR>
+" Yank Current Directory to clipboard
+nmap ycd :let @* = expand("%")<CR>
+" Yank Current File to clipboard
+nmap ycf :let @* = expand("%:p")<CR>
 
 " Commands
 " Set current directory to that of the currently opened file.
