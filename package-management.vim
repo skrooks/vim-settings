@@ -24,6 +24,9 @@ call minpac#add('nathanaelkane/vim-indent-guides')
 call minpac#add('godlygeek/tabular')
 call minpac#add('ap/vim-css-color')
 call minpac#add('vim-scripts/Improved-AnsiEsc')
+call minpac#add('machakann/vim-highlightedyank')
+call minpac#add('OmniSharp/omnisharp-vim')
+call minpac#add('nickspoons/vim-sharpenup')
 
 " VimDevIcons needs to be called last-ish
 call minpac#add('ryanoasis/vim-devicons')

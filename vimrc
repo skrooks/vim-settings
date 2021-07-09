@@ -23,6 +23,7 @@ set guifont=DejaVuSansMono_NF:h11
 
 set shiftwidth=4
 set tabstop=4
+set expandtab
 
 " Don't use tearoff menus (t)
 " Don't show toolbar (T)
@@ -54,6 +55,16 @@ let g:airline_powerline_fonts = 1
 " Load airline's tabline extension
 let g:airline#extensions#tabline#enabled = 1
 
+let g:ctrlp_custom_ignore = 'node_modules\|.git\|packages\|compiled\|dist\|bin\|obj'
+
+let g:highlightedyank_highlight_duration = 200
+
+let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_popup_options = {
+\ 'padding': [0, 1, 0, 1],
+\ 'border': [1]
+\}
+
 " Keymaps
 nnoremap gb :ls<CR>:buffer<Space>
 nnoremap <C-N> :NERDTree<CR>
@@ -63,14 +74,40 @@ nnoremap <Right> :bnext<CR>
 " Use %% to expand current path in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" vim-sharpenup
+set updatetime=500
+nmap <silent> <buffer> <a-cr> <Plug>(omnisharp_code_actions)
+xmap <silent> <buffer> <a-cr> <Plug>(omnisharp_code_actions)
+
 " Toggle spelling
 nmap <silent> <C-s>s :set spell!<CR>
 
-" File Type Json
-nmap <silent> <Leader>ftj :set filetype=json<CR>
-" File Format Json
-nmap <silent> <Leader>ffj :%!py -m json.tool<CR>
-nmap <silent> <Leader>ffx :%!py -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml(newl=''))"<CR>
+" File Type Stacktrace
+nnoremap <silent> <Leader>fts :set filetype=stacktrace<CR>
+
+" File Type JSON
+nnoremap <silent> <Leader>ftj :set filetype=json<CR>
+
+" File Format JSON
+nnoremap <silent> <Leader>ffj :%!py -m json.tool<CR>
+
+" File Format Multi-JSON, useful for formatting multiple json documents in one buffer
+" Remove blank lines so we can add commas correctly.
+" Prep for putting docs into an array by appending comma to all but last JSON object
+" Use normal mode to add '{"entries": [' to start wrapping in object with array content
+" Use normal mode to close array and entries object
+" Run through python formatting tool
+" Use normal mode to strip entries wrapper and unindent
+" Remove appended commas
+" Turn off highlighting from substitution
+nnoremap <silent> <Leader>ffm :%g/^$/d \| :1,$-1s/}$/},/ \| :execute 'normal ggO{"entries": [' \| :execute 'normal Go]}' \| %!py -m json.tool<CR>:silent execute 'normal gg2ddGk2ddggVG2<<' \| %s/^},$/}/ \| :noh<CR>
+
+" File Format XML
+nnoremap <silent> <Leader>ffx :%!py -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml(newl=''))"<CR>
+
+" File Line-breaks (change \r\n and \n to line breaks)
+nnoremap <silent> <Leader>fl :%s/\\\\/\\/ge \| %s/\(\\r\)\?\\n/<C-V><C-M>/Ige \| noh<CR>
+
 " Yank Current Directory to clipboard
 nmap ycd :let @* = expand("%")<CR>
 " Yank Current File to clipboard
