@@ -61,7 +61,7 @@ hi SpellBad                                             gui=undercurl           
 hi SpellCap                                             gui=undercurl           guisp=#0000FF
 hi SpellRare                                            gui=undercurl           guisp=#FF00FF
 hi SpellLocal                                           gui=undercurl           guisp=#00FFFF
-hi Pmenu                guifg=fg        guibg=#D787D7
+hi Pmenu                guifg=fg        guibg=#333333
 hi PmenuSel             guifg=fg        guibg=#878787
 hi PmenuSbar            guifg=fg        guibg=#878787
 hi PmenuThumb                                           gui=reverse
