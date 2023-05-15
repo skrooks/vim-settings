@@ -27,6 +27,7 @@ call minpac#add('vim-scripts/Improved-AnsiEsc')
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('OmniSharp/omnisharp-vim')
 call minpac#add('nickspoons/vim-sharpenup')
+call minpac#add('jparise/vim-graphql')
 
 " VimDevIcons needs to be called last-ish
 call minpac#add('ryanoasis/vim-devicons')
@@ -36,7 +37,6 @@ call minpac#add('Heorhiy/VisualStudioDark.vim', {'type': 'opt'})
 call minpac#add('NLKNguyen/papercolor-theme', {'type': 'opt'})
 call minpac#add('danilo-augusto/vim-afterglow', {'type': 'opt'})
 call minpac#add('nanotech/jellybeans.vim', {'type': 'opt'})
-call minpac#add('nightsense/carbonized', {'type': 'opt'})
 
 " Define user commands for updating/cleaning the plugins.
 command! PackUpdate call minpac#update()

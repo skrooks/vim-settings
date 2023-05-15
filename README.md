@@ -6,7 +6,7 @@ You also need to have git installed.
 
 ## Fonts
 
-Two of the included packages ([vim-airline] and [vim-devicons]) require a patched font to display correctly. You can grab one from [NerdFonts]. Go to the GitHub page and check the Releases. Avoid the v2.0.0 fonts since they're not correctly recognized as monospace fonts. Grab the desired font from the v1.2.0 release until the fonts get fixed in v2.1.0.
+Two of the included packages ([vim-airline] and [vim-devicons]) require a patched font to display correctly. You can grab one from [Nerd Fonts]. Go to the GitHub page and check the Releases. Nerd Fonts 3.0 generally provides a font in 3 flavors: regular, mono, and propo. The mono option is strictly monospaced, meaning larger gliphs can get scaled down to be tiny. As for the difference between regular and propo, maybe see discussion [#951](https://github.com/ryanoasis/nerd-fonts/discussions/951).
 
 On Ubuntu, just add the font files to `~/.fonts`. Since I use nvim from terminal, I set the terminal's default font to the desired patched Nerd Font.
 

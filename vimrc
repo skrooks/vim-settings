@@ -19,7 +19,11 @@ set mouse=a     " Enable mouse support
 set vb t_vb=    " Stop the beeping!
 
 set lines=45 columns=120
-set guifont=DejaVuSansMono_NF:h11
+if (has("gui_macvim"))
+    set guifont=DejaVuSansM\ Nerd\ Font:h12
+else
+    set guifont=DejaVuSansM\ Nerd\ Font:h12
+endif
 
 set shiftwidth=4
 set tabstop=4
@@ -30,8 +34,8 @@ set expandtab
 set guioptions-=tT
 
 set termguicolors    " Use 24-bit color
-set background=dark  " Use dark colorscheme variants
-colorscheme graywh
+set background=light
+colorscheme PaperColor
 
 " Let mouse wheel scroll file contents in console
 " When using ConEmu, remember to chcp 65001 for fonts
@@ -82,14 +86,16 @@ xmap <silent> <buffer> <a-cr> <Plug>(omnisharp_code_actions)
 " Toggle spelling
 nmap <silent> <C-s>s :set spell!<CR>
 
-" File Type Stacktrace
+" File Type C# Stacktrace
 nnoremap <silent> <Leader>fts :set filetype=stacktrace<CR>
+" File Type Java Logs
+nnoremap <silent> <Leader>ftl :set filetype=javalog<CR>
 
 " File Type JSON
 nnoremap <silent> <Leader>ftj :set filetype=json<CR>
 
 " File Format JSON
-nnoremap <silent> <Leader>ffj :%!py -m json.tool<CR>
+nnoremap <silent> <Leader>ffj :%!python3 -m json.tool<CR>
 
 " File Format Multi-JSON, useful for formatting multiple json documents in one buffer
 " Remove blank lines so we can add commas correctly.

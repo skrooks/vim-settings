@@ -23,4 +23,4 @@ hi def link stMethodCall   Type
 hi def link stInFile       Comment
 hi def link stFilePath     Identifier
 hi def link stLineNumber   Constant
-hi def link stAtLine       Comment
+hi def link stAtLine       Number
