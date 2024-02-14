@@ -28,6 +28,7 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('OmniSharp/omnisharp-vim')
 call minpac#add('nickspoons/vim-sharpenup')
 call minpac#add('jparise/vim-graphql')
+call minpac#add('craigmac/vim-mermaid')
 
 " VimDevIcons needs to be called last-ish
 call minpac#add('ryanoasis/vim-devicons')
